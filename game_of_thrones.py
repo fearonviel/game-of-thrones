@@ -27,6 +27,8 @@ for link in wikitable.findAll('a'):
         for row in wikitable2.findAll("tr")[1:]:  #excludes first row of the table
             for td in row.findAll("td")[5:]:    #takes only the last column
                 #print td.text[:4]
-                views += float(td.text[:4])  #takes only first four numbers
+                #views += float(td.text[:4])  #takes only first four numbers
+                #print td.find(text=True, recursive=False)
+                views += float(td.find(text=True, recursive=False))  # ignores child tags in td
 
 print (str(views) + " millions")
